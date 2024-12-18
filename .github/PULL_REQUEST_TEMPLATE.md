@@ -1,6 +1,7 @@
-______________________________________________________________________
-
-## name: solution review about: A template PR for code review with a checklist
+---
+name: solution review 
+about: A template PR for code review with a checklist
+---
 
 <!--
   make this PR easy to find:
