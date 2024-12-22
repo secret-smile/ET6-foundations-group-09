@@ -2,10 +2,8 @@ ignore:
   - venv
   - .github
 
-  {
-  "MD013": {
-    "line_length": 150,
-    "ignore_urls": true
-  }
-}
+
+MD013:
+  line_length: 150
+  ignore_urls: true
 
