@@ -1,7 +1,7 @@
 # Collab Coders
 
 > Welcome to the **Collab Coders** repository! 🚀  
-We are a team of passionate Junior developers From MIT.
+We are a team of passionate Junior developers From M_E_T.
 > dedicated to building impactful solutions through collaboration and innovation.
 
 ---
