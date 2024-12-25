@@ -13,7 +13,10 @@ ______________________________________________________________________
 
 ## Communication Schedule
 
-| Day | How | The topic of discussion | | --- | :-: | ----------------------- |
+| Day | How | The topic of discussion |
+| --- | :-: | ----------------------- |
+| | | |
+| | | |
 | | | |
 
 ## Communication Channels
@@ -31,17 +34,29 @@ ______________________________________________________________________
 
 ### Availability for calling/messaging
 
-| Day | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday | |
------- | :----: | :-----: | :-------: | :------: | :----: | :------: | :----: |
-| _name_ | | | | | | | |
+| Day | Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday |
+|:------ | :----: | :-----: | :-------: | :------: | :----: | :------: | ----: |
+|  Hiba |        |          |          |          |        |          |        |
+| Jeffery |         |          |          |          |        |          |        |
+| Kelvin |         |          |          |          |        |          |        |
+| Mahdia |         |          |          |          |        |          |        |
+| Martha |         |          |          |          |        |          |        |
+| Osei |         |          |          |          |        |          |        |
+| Rina |         |          |          |          |        |          |        |
+| Shagun |         |          |          |          |        |          |        |
+| Yool |         |          |          |          |        |          |        |
 
 ### How many hours everyone has per day
 
-- name: _5h_;
-- name: _6h_;
-- name: _5h_;
-- name: _4h_;
-- name: _3h_;
+- Hiba:
+- Jeffery:
+- Kelvin:
+- Mahdia:
+- Martha:
+- Osei:
+- Rina:
+- Shagun:
+- Yool:
 
 ## Asking for Help
 
