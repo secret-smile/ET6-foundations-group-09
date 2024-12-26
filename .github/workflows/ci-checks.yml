@@ -1,22 +1,29 @@
 name: ET CI Checks
 
-on: [push, pull_request, workflow_dispatch]
+on: 
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
 
 jobs:
   ls_linting:
-      runs-on: ubuntu-latest
-      steps:  
-        - uses: actions/checkout@v4
-        - uses: ls-lint/action@v2.2.3
+    runs-on: ubuntu-latest
+    steps:  
+      - uses: actions/checkout@v4
+      - uses: ls-lint/action@v2.2.3
 
   md_formatting:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
-    - uses: nosborn/github-action-markdown-cli@v3.3.0
-      with:
-        files: .
-        config_file: .markdownlint.yml
+      - uses: actions/checkout@v4
+      - uses: nosborn/github-action-markdown-cli@v3.3.0
+        with:
+          files: .
+          config_file: .markdownlint.yml
 
   py_formatting:
     runs-on: ubuntu-latest
@@ -44,21 +51,34 @@ jobs:
         if: always()
       - name: install pylint
         run: |
-          python -  m pip install --upgrade pip
+          python -m pip install --upgrade pip
           pip install pylint
         shell: bash
       - name: Python - Check Linting - pylint
-        run: "pylint solutions tests  || echo '::warning title=Pylint Error(s)::Discuss solutions and trade-offs in code review.'"
+        run: "pylint solutions tests || echo '::warning title=Pylint Error(s)::Discuss solutions and trade-offs in code review.'"
         shell: bash
 
   py_tests:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: python version
-        run: python --version
-        shell: bash
+
+      # Determine if only Markdown files were changed
+      - name: Check for non-Markdown file changes
+        id: check_files
+        run: |
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changed_files.txt
+          if ! grep -qv '\.md$' changed_files.txt; then
+            echo "Only Markdown files changed. Skipping py_tests."
+            echo "skip=true" >> $GITHUB_ENV
+          else
+            echo "Non-Markdown files changed. Proceeding with py_tests."
+            echo "skip=false" >> $GITHUB_ENV
+
+      # Run Python tests only if non-Markdown files are changed
       - name: Python - Run Tests
+        if: env.skip == 'false'
         run: python -m unittest
         shell: bash
+
 
