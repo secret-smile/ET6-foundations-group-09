@@ -12,7 +12,7 @@ Created on 28 12 2024
 
 import unittest
 
-from parse_email_alias import parse_email_alias
+from solutions.parse_email_alias import parse_email_alias
 
 
 class TestParseEmailAlias(unittest.TestCase):
