@@ -82,5 +82,7 @@ about: A template PR for code review with a checklist
 - [ ] Variable names are clear and helpful
 - [ ] The code follows the strategy as simply as possible
 - [ ] The implementation is as simple as possible given the strategy
+- [ ] There are no commented lines of code
+- [ ] There are no `print` statements anywhere
 - [ ] The code includes defensive assertions
 - [ ] Defensive assertions include as little logic as possible
