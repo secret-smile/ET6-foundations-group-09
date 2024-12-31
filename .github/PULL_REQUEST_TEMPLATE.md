@@ -55,6 +55,7 @@ about: A template PR for code review with a checklist
 - [ ] The function's name describes it's behavior
 - [ ] The function's name matches the file name
 - [ ] The function has correct type annotations
+- [ ] The function is not called in the function file
 
 ## Strategy
 
