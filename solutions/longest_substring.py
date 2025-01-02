@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-A module for generating lists of Fibonacci numbers
+A module for generating the longest substring
 
 Module contents:
     longest_substring: generates the longest substring without
