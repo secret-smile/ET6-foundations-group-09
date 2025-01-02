@@ -9,7 +9,7 @@ Author: Hiba Daffallah
 
 import unittest
 
-from ..phone_letter_combinations import phone_letter_combinations
+from solutions.phone_letter_combinations import phone_letter_combinations
 
 
 class TestPhoneLetterCombinations(unittest.TestCase):
