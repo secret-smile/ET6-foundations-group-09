@@ -32,17 +32,19 @@ class TestPhoneLetterCombinations(unittest.TestCase):
 
     def test_numbers_out_of_range(self):
         """It should return a message"""
+        with self.assertRaises(AssertionError) as context:
+            phone_letter_combinations("1")
         self.assertEqual(
-            phone_letter_combinations("1"),
-            "Input must only contain digits from 2 to 9.",
+            str(context.exception), "Input must only contain digits from 2 to 9."
         )
 
     def test_numbers_contains_one_out_of_range(self):
         """It should return a message"""
-        self.assertEqual(
-            phone_letter_combinations("12"),
-            "Input must only contain digits from 2 to 9.",
-        )
+        with self.assertRaises(AssertionError) as context:
+            phone_letter_combinations("12")
+            self.assertEqual(
+                str(context.exception), "Input must only contain digits from 2 to 9."
+            )
 
     # Defensive tests
     def test_none_input(self):
