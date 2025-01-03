@@ -1,6 +1,10 @@
 #!/usr/bin/env python3
 # -- coding: utf-8 --
+"""
+Created on 2024-01-01
 
+@author: Jeffery Offei Darko
+"""
 
 import unittest
 
@@ -81,10 +85,11 @@ class TestReverseString(unittest.TestCase):
     def test_string_with_whitespaces_at_the_end_of_string(self):
         """It should reverse a string with whitespaces at the end of the string"""
         self.assertEqual(reverse_string(" hello "), " olleh ")
-    #write a test for special characters and string with numbers
+    
     def test_string_with_special_characters(self):
         """It should reverse a string with special characters"""
-        self.assertEqual(reverse_string("a!b@c#d$e%^f&g*j(h)"), ")h(j*g&f^e$d#c@b!a)")
+        self.assertEqual(reverse_string("a!b@c#d$e%^f&g*j(h)"), ")h(j*g&f^e$d#c@b!a")
+
         
         # assertion_tests
     def test_assertion_error_on_non_string(self):

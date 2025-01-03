@@ -1,4 +1,19 @@
-def reverse_string(string: str):
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
+"""
+A module for generating the longest substring
+
+Module contents:
+    longest_substring: generates the longest substring without
+    repetition for a given string.
+
+Created on 2025-01-01
+
+@author: Jeffery Offei Darko
+"""
+
+def reverse_string(input_string: str):
     """This function takes a string and returns the reverse form of the string
 
     Parameters:
@@ -25,11 +40,14 @@ def reverse_string(string: str):
 
     >>> reverse_string('racecar')
     'racecar'
+    
+    >>> reverse_string('!@#$%^&*()')
+    ')(*&^%$#@!'
     """
     # Check if input is a string
-    assert isinstance(string, str), "Input must be a string"
+    assert isinstance(input_string, str), "Input must be a string"
 
-    return string[::-1]
+    return input_string[::-1]
 
 
 print(reverse_string("Evan Cole"))
