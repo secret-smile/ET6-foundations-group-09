@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-            
+# -*- coding: utf-8 -*-
 
 """
 A module for generating the reversing strings
@@ -12,6 +12,7 @@ Created on 2025-01-01
 
 @author: Jeffery Offei Darko
 """
+
 
 def reverse_string(input_string: str):
     """This function takes a string and returns the reverse form of the string
@@ -40,7 +41,7 @@ def reverse_string(input_string: str):
 
     >>> reverse_string('racecar')
     'racecar'
-    
+
     >>> reverse_string('!@#$%^&*()')
     ')(*&^%$#@!'
     """

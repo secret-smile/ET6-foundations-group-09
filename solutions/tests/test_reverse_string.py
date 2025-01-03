@@ -10,6 +10,7 @@ import unittest
 
 from ..reverse_string import reverse_string
 
+
 class TestReverseString(unittest.TestCase):
     """Test the reverse_string function"""
 
@@ -57,7 +58,8 @@ class TestReverseString(unittest.TestCase):
         """It should reverse a string with Unicode characters"""
         self.assertEqual(
             reverse_string("\u3053\u3093\u306b\u3061\u306f"),
-            "\u306f\u3061\u306b\u3093\u3053")
+            "\u306f\u3061\u306b\u3093\u3053",
+        )
 
     def test_leading_and_trailing_spaces(self):
         """It should reverse a string with leading and trailing spaces"""
