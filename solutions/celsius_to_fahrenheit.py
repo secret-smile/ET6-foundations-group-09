@@ -10,9 +10,10 @@ Created on 30 12 2024
 @author: Terry Aziaba
 """
 
+
 def celsius_to_fahrenheit(celsius: float) -> float:
     """Converts a temperature from Celsius to Fahrenheit.
-    
+
     Parameters:
         celsius: float, the temperature in Celsius.
 
@@ -21,7 +22,7 @@ def celsius_to_fahrenheit(celsius: float) -> float:
 
     Raises:
         AssertionError: if the argument is not a float or int.
-    
+
     Examples:
         >>> celsius_to_fahrenheit(0)
         32.0
@@ -37,5 +38,6 @@ def celsius_to_fahrenheit(celsius: float) -> float:
 
     # Conversion
     fahrenheit = (celsius * 9 / 5) + 32
+
 
     return fahrenheit
