@@ -5,6 +5,7 @@ Created on 30 12 2024
 @author: Terry Aziaba
 """
 import unittest
+
 from ..celsius_to_fahrenheit import celsius_to_fahrenheit
 
 
@@ -32,7 +33,7 @@ class TestCelsiusToFahrenheit(unittest.TestCase):
         self.assertAlmostEqual(celsius_to_fahrenheit(1000), 1832.0)
 
     def test_large_negative_value(self):
-        """Test a very large negative Celsius value."""
+        """Test a very large negative Celsius value"""
         self.assertAlmostEqual(celsius_to_fahrenheit(-273.15), -459.67)
 
     def test_zero_input(self):
