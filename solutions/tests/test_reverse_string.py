@@ -70,6 +70,19 @@ class TestReverseString(unittest.TestCase):
         long_string = "a" * 1000
         self.assertEqual(reverse_string(long_string), "a" * 1000)
 
+        # write test for with whitespaces either at the front, in the middle or at the end
+        def test_string_with_whitespaces_infront_of_string(self):
+            """It should reverse a string with whitespaces in front of the string"""
+            self.assertEqual(reverse_string(" hello"), "olleh ")
+
+        def test_string_with_whitespaces_inmiddle_of_string(self):
+            """It should reverse a string with whitespaces in the middle of the string"""
+            self.assertEqual(reverse_string("hello world"), "dlrow olleh")
+
+        def test_string_with_whitespaces_at_the_end_of_string(self):
+            """It should reverse a string with whitespaces at the end of the string"""
+            self.assertEqual(reverse_string(" hello "), " olleh ")
+
         # assertion_tests
 
     def test_assertion_error_on_non_string(self):
