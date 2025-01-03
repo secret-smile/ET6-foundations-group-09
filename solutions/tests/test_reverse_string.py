@@ -69,22 +69,24 @@ class TestReverseString(unittest.TestCase):
         """It should reverse a very long string"""
         long_string = "a" * 1000
         self.assertEqual(reverse_string(long_string), "a" * 1000)
-
-        # write test for with whitespaces either at the front, in the middle or at the end
-        def test_string_with_whitespaces_infront_of_string(self):
-            """It should reverse a string with whitespaces in front of the string"""
-            self.assertEqual(reverse_string(" hello"), "olleh ")
-
-        def test_string_with_whitespaces_inmiddle_of_string(self):
-            """It should reverse a string with whitespaces in the middle of the string"""
-            self.assertEqual(reverse_string("hello world"), "dlrow olleh")
-
-        def test_string_with_whitespaces_at_the_end_of_string(self):
-            """It should reverse a string with whitespaces at the end of the string"""
-            self.assertEqual(reverse_string(" hello "), " olleh ")
-
+        
+    def test_string_with_whitespaces_infront_of_string(self):
+        """It should reverse a string with whitespaces in front of the string"""
+        self.assertEqual(reverse_string(" hello"), "olleh ")
+            
+    def test_string_with_whitespaces_inmiddle_of_string(self):
+        """It should reverse a string with whitespaces in the middle of the string"""  
+        self.assertEqual(reverse_string("hello world"), "dlrow olleh")
+        
+    def test_string_with_whitespaces_at_the_end_of_string(self):
+        """It should reverse a string with whitespaces at the end of the string"""
+        self.assertEqual(reverse_string(" hello "), " olleh ")
+    #write a test for special characters and string with numbers
+    def test_string_with_special_characters(self):
+        """It should reverse a string with special characters"""
+        self.assertEqual(reverse_string("a!b@c#d$e%^f&g*j(h)"), ")h(j*g&f^e$d#c@b!a)")
+        
         # assertion_tests
-
     def test_assertion_error_on_non_string(self):
         """It should raise an AssertionError for non-string inputs"""
         with self.assertRaises(AssertionError):
