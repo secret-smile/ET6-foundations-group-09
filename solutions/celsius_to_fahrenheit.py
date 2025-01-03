@@ -12,7 +12,7 @@ Created on 30 12 2024
 
 def celsius_to_fahrenheit(celsius: float) -> float:
     """Converts a temperature from Celsius to Fahrenheit.
-
+    
     Parameters:
         celsius: float, the temperature in Celsius.
 
