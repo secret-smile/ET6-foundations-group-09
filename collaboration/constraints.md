@@ -2,7 +2,9 @@
 
 # Constraints
 
-Some boundaries around our project.
+In any collaborative project, understanding and addressing constraints is essential for success.
+This group faces a mix of internal involuntary, internal voluntary, and external constraints
+that impact their ability to work effectively.
 
 ## External
 
@@ -15,6 +17,16 @@ Some boundaries around our project.
   - ...
 -->
 
+External constraints pose significant hurdles for the group, many of which are tied to
+technology and infrastructure. The most prominent issue, identified by 75% of group members,
+is technology limitations, such as difficulties with Git, GitHub, and communication tools.
+This suggests that technical barriers are impeding the group’s workflow.
+Moreover, time zone differences and internet connectivity each affect 50%
+of the group, making it challenging to collaborate in real time. Other constraints,
+like project deadlines, inconsistent power supply, and limited access to personal computers,
+are less widespread but still impact 25% of members. These challenges reflect a diverse
+set of external pressures that complicate the group’s ability to work efficiently.
+
 ## Internal: Involuntary
 
 <!--
@@ -22,6 +34,16 @@ Some boundaries around our project.
   - each of your individual skill levels
   - amount of time available to work on the project
 -->
+
+The group is grappling with individual limitations that are beyond their immediate control.
+Skill levels stand out as the most significant internal involuntary constraint, with 62.5% of
+members identifying it as a challenge. This suggests that some members may feel under qualified
+or lack confidence in certain areas, which can hinder progress.
+Time is another critical factor—37.5% of members struggle with the amount of time available to
+dedicate to the project, while others face conflicting work schedules that make coordination difficult.
+Additionally, the inability to respond quickly to messages further exacerbates communication delays.
+However, only 12.5% of the group cited their preferred number of working hours as a constraint,
+indicating that most members are willing to invest the necessary effort if other challenges are addressed.
 
 ## Internal: Voluntary
 
