@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-            
 
 """
-A module for generating the longest substring
+A module for generating the reversing strings
 
 Module contents:
     longest_substring: generates the longest substring without
