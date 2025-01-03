@@ -4,9 +4,7 @@
 """
 A module for generating the reversing strings
 
-Module contents:
-    longest_substring: generates the longest substring without
-    repetition for a given string.
+Module contents: Takes a string as input and returns its reversed version
 
 Created on 2025-01-01
 
