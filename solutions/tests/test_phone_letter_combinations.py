@@ -50,7 +50,7 @@ class TestPhoneLetterCombinations(unittest.TestCase):
     def test_none_input(self):
         """It should raise AssertionError for non-integer input"""
         with self.assertRaises(AssertionError):
-            phone_letter_combinations("a")
+            phone_letter_combinations("b")
 
 
 if __name__ == "__main__":
