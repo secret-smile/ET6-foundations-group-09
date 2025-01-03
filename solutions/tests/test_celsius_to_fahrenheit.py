@@ -1,9 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Test module for conversion from celsius to fahrenheit.
+
+This module contains unittest test cases for the celsius_to_fahrenheit
+
 Created on 30 12 2024
 @author: Terry Aziaba
 """
+
 import unittest
 
 from ..celsius_to_fahrenheit import celsius_to_fahrenheit
