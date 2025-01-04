@@ -26,7 +26,6 @@ Here’s how the repository is organized:
 - Branches are named after it is functionality for clarity
 - (e.g., `challenges/factorial-function`, `challenges/sort-list`).
 
-
 ---
 
 ## 🛠️ Technologies Used
