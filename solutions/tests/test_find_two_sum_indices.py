@@ -1,40 +1,114 @@
-def find_two_sum_indices(nums: list[int], target: int) -> list[int]:
-    """
-    Find two indices in the list such that their values add up to the target.
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Test module for find_two_sum_indices function.
 
-    Parameters:
-    nums (list[int]): The list of integers.
-    target (int): The target sum.
+Created on 2025-01-05
 
-    Returns:
-    list[int]: The indices of the two numbers that add up to the target.
+Author: Jeffery Offei Darko
+"""
 
-    Raises:
-    AssertionError: If no solution is found.
-    AssertionError: If the input is not a list of integers.
-    AssertionError: If the target is not an integer.
+import unittest
+from solutions.find_two_sum_indices import find_two_sum_indices
 
-    Examples:
-    >>> find_two_sum_indices([2, 7, 11, 15], 9)
-    [0, 1]
-    
-    >>> find_two_sum_indices([3, 2, 4], 6)
-    [1, 2]
-    
-    >>> find_two_sum_indices([3, 3], 6)
-    [0, 1]
-    
-    """
-    if not isinstance(nums, list) or not all(isinstance(i, int) for i in nums):
-        raise TypeError("Input must be a list of integers.")
-    if not isinstance(target, int):
-        raise TypeError("Target must be an integer.")
 
-    num_map = {}
-    for i, num in enumerate(nums):
-        complement = target - num
-        if complement in num_map:
-            return [num_map[complement], i]
-        num_map[num] = i
+class TestFindTwoSumIndices(unittest.TestCase):
 
-    raise ValueError("No two sum solution.")
+    # Basic test cases
+    def test_basic_case_1(self):
+        """Test basic case with a simple target sum."""
+        self.assertEqual(find_two_sum_indices([2, 7, 11, 15], 9), [0, 1])
+
+    def test_basic_case_2(self):
+        """Test basic case with a different array and target."""
+        self.assertEqual(find_two_sum_indices([3, 2, 4], 6), [1, 2])
+
+    def test_basic_case_3(self):
+        """Test basic case with duplicate values."""
+        self.assertEqual(find_two_sum_indices([3, 3], 6), [0, 1])
+
+    # Edge cases with integers
+    def test_with_negative_numbers(self):
+        """Test case with negative numbers."""
+        self.assertEqual(find_two_sum_indices([-3, 4, 3, 90], 0), [0, 2])
+
+    def test_with_zeroes(self):
+        """Test case where all numbers are zero."""
+        self.assertEqual(find_two_sum_indices([0, 0, 0], 0), [0, 1])
+
+    def test_with_large_numbers(self):
+        """Test case with large integers."""
+        self.assertEqual(find_two_sum_indices([1000000, 2500000, 1500000], 3500000), [0, 1])
+
+    # Cases where no solution exists
+    def test_no_solution(self):
+        """Test case where no solution exists."""
+        with self.assertRaises(AssertionError):
+            find_two_sum_indices([1, 2, 3], 7)
+
+    def test_empty_list(self):
+        """Test case with an empty list."""
+        with self.assertRaises(AssertionError):
+            find_two_sum_indices([], 5)
+
+    def test_single_element(self):
+        """Test case with a single element."""
+        with self.assertRaises(AssertionError):
+            find_two_sum_indices([1], 1)
+
+    def test_repeated_elements(self):
+        """Test case with repeated elements where no solution exists."""
+        with self.assertRaises(AssertionError):
+            find_two_sum_indices([1, 1, 1, 1], 3)
+
+    # Tests with floats
+    def test_with_floats_basic(self):
+        """Test with floats that add up to the target."""
+        self.assertEqual(find_two_sum_indices([2.5, 7.1, 11.3], 9.6), [0, 1])
+
+    def test_with_floats_and_integers(self):
+        """Test with a mix of floats and integers."""
+        self.assertEqual(find_two_sum_indices([1, 2.5, 4.5], 7), [1, 2])
+
+    def test_with_floats_no_solution(self):
+        """Test with floats where no solution exists."""
+        with self.assertRaises(AssertionError):
+            find_two_sum_indices([1.2, 3.4, 5.6], 10)
+
+    def test_with_float_target(self):
+        """Test with a float target."""
+        self.assertEqual(find_two_sum_indices([2, 3.5, 5.5], 9), [1, 2])
+
+    def test_with_float_and_negative(self):
+        """Test with floats and negative numbers."""
+        self.assertEqual(find_two_sum_indices([-1.5, 3.0, 2.5], 1.0), [0, 2])
+
+    # Invalid input tests
+    def test_invalid_input_not_list(self):
+        """Test with an invalid input that is not a list."""
+        with self.assertRaises(AssertionError):
+            find_two_sum_indices("123", 5)
+
+    def test_invalid_input_with_non_number_elements(self):
+        """Test with invalid input containing non-number elements."""
+        with self.assertRaises(AssertionError):
+            find_two_sum_indices([1, "two", 3], 5)
+
+    def test_invalid_target_not_number(self):
+        """Test with an invalid target that is not a number."""
+        with self.assertRaises(AssertionError):
+            find_two_sum_indices([1, 2, 3], "five")
+
+    def test_invalid_input_none(self):
+        """Test with an invalid input of None."""
+        with self.assertRaises(AssertionError):
+            find_two_sum_indices(None, 5)
+
+    def test_invalid_target_none(self):
+        """Test with an invalid target of None."""
+        with self.assertRaises(AssertionError):
+            find_two_sum_indices([1, 2, 3], None)
+
+
+if __name__ == "__main__":
+    unittest.main()
