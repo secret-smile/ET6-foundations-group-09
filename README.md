@@ -24,7 +24,8 @@ Here’s how the repository is organized:
 - `feature-branches`: Each team member has their own branch
 - for working on features or tasks.
 - Branches are named after it is functionality for clarity
-- (e.g., `feature-factorial-function`, `feature-sort-list`).
+- (e.g., `challenges/factorial-function`, `challenges/sort-list`).
+
 
 ---
 
