@@ -54,7 +54,8 @@ indicating that most members are willing to invest the necessary effort if other
   - the number of hours you want to spend working
   - only using the colors black and white
 -->
-- **Primary Constraint**: 
+
+- **Primary Constraint**:
   - Technology limitations (e.g., Git, GitHub, and communication tools) were the most frequently cited external constraint, affecting 75% of respondents.
 - **Time Zone Differences and Connectivity**:
   - Time zone differences and internet connectivity are notable external constraints, each affecting 50% of respondents.
