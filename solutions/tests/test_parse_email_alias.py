@@ -6,7 +6,7 @@ Tests for the parse_email_alias module.
 This module contains unit tests for the parse_email_alias function,
 including normal cases, edge cases, and error conditions.
 
-Created on 28 12 2024
+Created on 4 01 2025
 @author: Mahdia Ahmadi
 """
 

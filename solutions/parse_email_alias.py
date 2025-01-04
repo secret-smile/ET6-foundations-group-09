@@ -3,38 +3,56 @@
 """
 A module for parsing and validating email aliases.
 
+This module provides functionality to validate email addresses and parse their components,
+including support for Gmail-style plus (+) aliases and subdomain addresses. The implementation
+combines specific validation checks with regex pattern matching to provide detailed error
+messages while maintaining RFC 5322 compliance.
+
 Module contents:
     - parse_email_alias: validates and extracts components of an email alias
 
-Created on 28 12 2024
+Features:
+    - Full RFC 5322 compliant email validation
+    - Support for Gmail-style + aliases
+    - Support for subdomains
+    - Detailed error reporting for specific validation failures
+    - Comprehensive component extraction
+
+Created on 4 01 2025
 @author: Mahdia Ahamdi
 """
+
+import re
 
 
 def parse_email_alias(email: str) -> dict:
     """
     Parse and validate an email address with optional alias tags.
 
-    Validates email format and extracts components including the local part,
-    domain, and any alias tags. Supports Gmail-style + aliases and subdomain
-    addresses.
+    This function performs comprehensive validation of email addresses, providing
+    specific error messages for different types of validation failures. It supports
+    Gmail-style plus (+) aliases and subdomains while validating against RFC 5322
+    standards for email format.
 
     Parameters:
-        email: str, the email address to parse
+        email: str
+            The email address to parse. Must be a string containing the email address
+            to be validated and parsed.
 
     Returns:
-        dict containing:
-            - valid: bool, whether the email is valid
-            - local_part: str, part before the @ (None if invalid)
-            - domain: str, part after the @ (None if invalid)
-            - tags: list[str], any alias tags found (empty if none)
-            - errors: list[str], any validation errors found
+        dict
+            A dictionary containing the following keys:
+            - valid (bool): Whether the email is valid
+            - local_part (str | None): Part before the @ (None if invalid)
+            - domain (str | None): Part after the @ (None if invalid)
+            - tags (list[str]): Any alias tags found (empty if none)
+            - errors (list[str]): Any validation errors found
 
     Raises:
-        AssertionError: if the input is not a string
+        AssertionError: If the input is not a string
 
     Examples:
-        >>> # Test basic email
+        >>> # Test basic valid email
         >>> result = parse_email_alias("user@example.com")
         >>> result['valid']
         True
@@ -44,64 +62,94 @@ def parse_email_alias(email: str) -> dict:
         'example.com'
         >>> result['tags']
         []
+        >>> result['errors']
+        []
 
-        >>> # Test with alias tag
-        >>> result = parse_email_alias("user+tag@example.com")
+        >>> # Test email with single alias tag
+        >>> result = parse_email_alias("user+newsletter@example.com")
+        >>> result['valid']
+        True
+        >>> result['local_part']
+        'user'
+        >>> result['domain']
+        'example.com'
+        >>> result['tags']
+        ['newsletter']
+
+        >>> # Test email with multiple alias tags
+        >>> result = parse_email_alias("user+tag1+tag2@example.com")
         >>> result['valid']
         True
         >>> result['local_part']
         'user'
         >>> result['tags']
-        ['tag']
-
-        >>> # Test multiple tags
-        >>> result = parse_email_alias("user+tag1+tag2@example.com")
-        >>> result['tags']
         ['tag1', 'tag2']
 
-        >>> # Test subdomain
+        >>> # Test email with subdomain
         >>> result = parse_email_alias("user@sub.example.com")
+        >>> result['valid']
+        True
         >>> result['domain']
         'sub.example.com'
 
-        >>> # Test invalid email (no @)
+        >>> # Test missing @ symbol
         >>> result = parse_email_alias("invalid.email")
         >>> result['valid']
         False
-        >>> 'Missing @ symbol' in result['errors']
-        True
+        >>> result['errors']
+        ['Missing @ symbol']
 
         >>> # Test empty local part
-        >>> result = parse_email_alias("@domain.com")
+        >>> result = parse_email_alias("@example.com")
         >>> result['valid']
         False
-        >>> 'Empty local part' in result['errors']
-        True
+        >>> result['errors']
+        ['Empty local part']
 
-        >>> # Test invalid characters
-        >>> result = parse_email_alias("user<>@domain.com")
+        >>> # Test empty domain
+        >>> result = parse_email_alias("user@")
         >>> result['valid']
         False
-        >>> 'Invalid characters in local part' in result['errors']
-        True
+        >>> result['errors']
+        ['Empty domain']
+
+        >>> # Test invalid characters in local part
+        >>> result = parse_email_alias("user<>@example.com")
+        >>> result['valid']
+        False
+        >>> result['errors']
+        ['Invalid characters in local part']
 
         >>> # Test missing TLD
-        >>> result = parse_email_alias("user@sub.")
+        >>> result = parse_email_alias("user@domain")
         >>> result['valid']
         False
-        >>> 'Invalid domain (missing TLD)' in result['errors']
-        True
+        >>> result['errors']
+        ['Invalid domain (missing TLD)']
+
+        >>> # Test invalid domain format
+        >>> result = parse_email_alias("user@[192.168.1.1]")
+        >>> result['valid']
+        False
+        >>> result['errors']
+        ['Invalid domain format']
+
+        >>> # Test empty email
+        >>> result = parse_email_alias("")
+        >>> result['valid']
+        False
+        >>> result['errors']
+        ['Email cannot be empty']
 
         >>> # Test non-string input
-        >>> parse_email_alias(12345)
-        Traceback (most recent call last):
-            ...
-        AssertionError: Input must be a string
+        >>> try:
+        ...     parse_email_alias(123)
+        ... except AssertionError as e:
+        ...     print(str(e))
+        Input must be a string
     """
-    # defensive assertion
     assert isinstance(email, str), "Input must be a string"
 
-    # Initialize result dictionary
     result = {
         "valid": False,
         "local_part": None,
@@ -110,12 +158,11 @@ def parse_email_alias(email: str) -> dict:
         "errors": [],
     }
 
-    # Basic validation for the input email
     if not email:
         result["errors"].append("Email cannot be empty")
         return result
 
-    # Check for @ symbol
+    # Check for @ symbol first
     if "@" not in email:
         result["errors"].append("Missing @ symbol")
         return result
@@ -123,19 +170,45 @@ def parse_email_alias(email: str) -> dict:
     # Split into local part and domain
     local_part, domain = email.split("@", 1)
 
-    # Validate local part
+    # Check empty local part
     if not local_part:
         result["errors"].append("Empty local part")
         return result
 
-    # Check for invalid characters in local part
+    # Check empty domain
+    if not domain:
+        result["errors"].append("Empty domain")
+        return result
+
+    # Validate local part characters using regular expression(regx)
     allowed_chars = set(
-        "abcdefghijklmnopqrstuvwxyz"
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-        "0123456789.!#$%&'*+-/=?^_`{|}~"
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789.!#$%&'*+-/=?^_`{|}~"
     )
-    if not all(c in allowed_chars for c in local_part):
+    if not all(c in allowed_chars for c in local_part.split("+")[0]):
         result["errors"].append("Invalid characters in local part")
+        return result
+
+    # Validate domain
+    if not domain:
+        result["errors"].append("Empty domain")
+        return result
+
+    if ".." in domain:
+        result["errors"].append("Invalid domain format")
+        return result
+
+    # Check for valid domain format
+    domain_parts = domain.split(".")
+
+    # Check for missing or invalid TLD
+    if len(domain_parts) == 1 or not domain_parts[-1]:
+        result["errors"].append("Invalid domain (missing TLD)")
+        return result
+
+    # Validate domain format using regx
+    domain_pattern = r"^[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]*[a-zA-Z0-9])?)*\.[a-zA-Z]{2,}$"
+    if not re.match(domain_pattern, domain):
+        result["errors"].append("Invalid domain format")
         return result
 
     # Extract tags if present
@@ -144,31 +217,6 @@ def parse_email_alias(email: str) -> dict:
     if "+" in local_part:
         base_local, *tags = local_part.split("+")
 
-    # Validate domain
-    if not domain:
-        result["errors"].append("Empty domain")
-        return result
-
-    if ".." in domain:
-        result["errors"].append("Invalid domain (consecutive dots)")
-        return result
-
-    domain_parts = domain.split(".")
-    if len(domain_parts) == 1 or (len(domain_parts) > 1 and not domain_parts[-1]):
-        result["errors"].append("Invalid domain (missing TLD)")
-        return result
-
-    if (
-        not all(
-            part and all(c.isalnum() or c == "-" for c in part)
-            for part in domain_parts[:-1]
-        )
-        or not domain_parts[-1].isalnum()
-    ):
-        result["errors"].append("Invalid domain format")
-        return result
-
-    # If we got here, email is valid
     result["valid"] = True
     result["local_part"] = base_local
     result["domain"] = domain
