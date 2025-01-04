@@ -3,8 +3,7 @@
 # Constraints
 
 In any collaborative project, understanding and addressing constraints is essential for success.
-This group faces a mix of internal involuntary, internal voluntary, and external constraints
-that impact their ability to work effectively.
+A survey was conducted within the group to know the constraint of each member of our group. Below are the internal and external constraint of the group.
 
 ## External
 
@@ -17,15 +16,10 @@ that impact their ability to work effectively.
   - ...
 -->
 
-External constraints pose significant hurdles for the group, many of which are tied to
-technology and infrastructure. The most prominent issue, identified by 75% of group members,
-is technology limitations, such as difficulties with Git, GitHub, and communication tools.
-This suggests that technical barriers are impeding the group’s workflow.
-Moreover, time zone differences and internet connectivity each affect 50%
-of the group, making it challenging to collaborate in real time. Other constraints,
-like project deadlines, inconsistent power supply, and limited access to personal computers,
-are less widespread but still impact 25% of members. These challenges reflect a diverse
-set of external pressures that complicate the group’s ability to work efficiently.
+- Primary Constraint: Technology limitations (e.g., Git, GitHub, and communication tools) were the most frequently cited
+  external constraint, affecting 75% of respondents.
+- Time zone differences and internet connectivity are also notable external constraints, each affecting 50% of respondents.
+- Other Concerns: Project deadlines, inconsistent power supply, and access to a personal computer were mentioned by 25% of respondents each.
 
 ## Internal: Involuntary
 
@@ -35,15 +29,12 @@ set of external pressures that complicate the group’s ability to work efficien
   - amount of time available to work on the project
 -->
 
-The group is grappling with individual limitations that are beyond their immediate control.
-Skill levels stand out as the most significant internal involuntary constraint, with 62.5% of
-members identifying it as a challenge. This suggests that some members may feel under qualified
-or lack confidence in certain areas, which can hinder progress.
-Time is another critical factor—37.5% of members struggle with the amount of time available to
-dedicate to the project, while others face conflicting work schedules that make coordination difficult.
-Additionally, the inability to respond quickly to messages further exacerbates communication delays.
-However, only 12.5% of the group cited their preferred number of working hours as a constraint,
-indicating that most members are willing to invest the necessary effort if other challenges are addressed.
+Primary Constraint: The individual skill levels of group members were cited by 62.5% of respondents, making it the most significant internal constraint.
+Other notable constraints (each at 37.5%) include:
+  The amount of time available to work on the project.
+  Individual work schedules.
+  Inability to respond quickly to messages.
+Least Concern: The number of hours members want to spend working (12.5%).
 
 ## Internal: Voluntary
 
