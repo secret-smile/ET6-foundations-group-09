@@ -16,10 +16,12 @@ A survey was conducted within the group to know the constraint of each member of
   - ...
 -->
 
-- **Primary Constraint:** Technology limitations (e.g., Git, GitHub, and communication tools) were the most frequently cited
+- **Primary Constraint:**
+  - Technology limitations (e.g., Git, GitHub, and communication tools) were the most frequently cited
   external constraint, affecting 75% of respondents.
 - Time zone differences and internet connectivity are also notable external constraints, each affecting 50% of respondents.
-- **Other Concerns:** Project deadlines, inconsistent power supply, and access to a personal computer were mentioned by 25% of respondents each.
+- **Other Concerns:**
+  - Project deadlines, inconsistent power supply, and access to a personal computer were mentioned by 25% of respondents each.
 
 ## Internal: Involuntary
 
@@ -29,12 +31,14 @@ A survey was conducted within the group to know the constraint of each member of
   - amount of time available to work on the project
 -->
 
-- **Primary Constraint:** The individual skill levels of group members were cited by 62.5% of respondents, making it the most significant internal constraint.
+- **Primary Constraint:**
+  - The individual skill levels of group members were cited by 62.5% of respondents, making it the most significant internal constraint.
 - **Other notable constraints (each at 37.5%) include:**
   - The amount of time available to work on the project.
   - Individual work schedules.
   - Inability to respond quickly to messages.
-- **Least Concern:** The number of hours members want to spend working (12.5%).
+- **Least Concern:**
+  - The number of hours members want to spend working (12.5%).
 
 ## Internal: Voluntary
 <!--
