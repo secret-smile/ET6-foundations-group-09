@@ -46,7 +46,6 @@ However, only 12.5% of the group cited their preferred number of working hours a
 indicating that most members are willing to invest the necessary effort if other challenges are addressed.
 
 ## Internal: Voluntary
-
 <!--
   constraints that your team decided on to help scope the project. they may include:
   - coding style & conventions
