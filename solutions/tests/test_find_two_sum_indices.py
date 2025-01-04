@@ -13,7 +13,6 @@ from solutions.find_two_sum_indices import find_two_sum_indices
 
 
 class TestFindTwoSumIndices(unittest.TestCase):
-
     # Basic test cases
     def test_basic_case_1(self):
         """Test basic case with a simple target sum."""
@@ -38,7 +37,9 @@ class TestFindTwoSumIndices(unittest.TestCase):
 
     def test_with_large_numbers(self):
         """Test case with large integers."""
-        self.assertEqual(find_two_sum_indices([1000000, 2500000, 1500000], 3500000), [0, 1])
+        self.assertEqual(
+            find_two_sum_indices([1000000, 2500000, 1500000], 3500000), [0, 1]
+        )
 
     # Cases where no solution exists
     def test_no_solution(self):
