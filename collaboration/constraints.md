@@ -37,7 +37,6 @@ Other notable constraints (each at 37.5%) include:
 Least Concern: The number of hours members want to spend working (12.5%).
 
 ## Internal: Voluntary
-
 <!--
   constraints that your team decided on to help scope the project. they may include:
   - coding style & conventions
@@ -45,3 +44,10 @@ Least Concern: The number of hours members want to spend working (12.5%).
   - the number of hours you want to spend working
   - only using the colors black and white
 -->
+
+- **Primary Constraint**:
+  - Technology limitations (e.g., Git, GitHub, and communication tools) were the most frequently cited external constraint, affecting 75% of respondents.
+- **Time Zone Differences and Connectivity**:
+  - Time zone differences and internet connectivity are notable external constraints, each affecting 50% of respondents.
+- **Other Concerns**:
+  - Project deadlines, inconsistent power supply, and access to a personal computer were mentioned by 25% of respondents each.
