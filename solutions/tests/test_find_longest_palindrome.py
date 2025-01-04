@@ -113,31 +113,43 @@ class TestIsPalindrome(unittest.TestCase):
         """
         Test that an empty string is considered a palindrome.
         """
-        self.assertTrue(is_palindrome(""))
+        self.assertEqual(is_palindrome(""), True, "Empty string should be a palindrome")
 
     def test_single_char_palindrome(self):
         """
         Test that a single character is a palindrome.
         """
-        self.assertTrue(is_palindrome("x"))
+        self.assertEqual(
+            is_palindrome("x"), True, "Single character should be a palindrome"
+        )
 
     def test_simple_palindrome(self):
         """
         Test a simple palindrome string.
         """
-        self.assertTrue(is_palindrome("level"))
+        self.assertEqual(
+            is_palindrome("level"), True, "The word 'level' should be a palindrome"
+        )
 
     def test_non_palindrome(self):
         """
         Test a non-palindrome string.
         """
-        self.assertFalse(is_palindrome("python"))
+        self.assertEqual(
+            is_palindrome("python"),
+            False,
+            "The word 'python' should not be a palindrome",
+        )
 
     def test_palindrome_with_spaces(self):
         """
         Test that spaces affect palindrome detection.
         """
-        self.assertFalse(is_palindrome("race car"))
+        self.assertEqual(
+            is_palindrome("race car"),
+            False,
+            "String with spaces should not be considered a palindrome",
+        )
 
 
 if __name__ == "__main__":
