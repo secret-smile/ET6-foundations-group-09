@@ -78,7 +78,7 @@ class TestFindTwoSumIndices(unittest.TestCase):
 
     def test_with_float_target(self):
         """Test with a float target."""
-        self.assertEqual(find_two_sum_indices([2, 3.5, 5.5], 9), [1, 2])
+        self.assertEqual(find_two_sum_indices([2, 3.5, 5], 8.5), [1, 2])
 
     def test_with_float_and_negative(self):
         """Test with floats and negative numbers."""
