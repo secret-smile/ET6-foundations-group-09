@@ -3,7 +3,7 @@
 """
 Test module for conversion from number to word.
 
-This module contains unittest test and edge cases for the number_to_word
+This module contains unittest test and edge cases for the number_to_word.
 
 Created on 03 01 2025
 @author: Terry Aziaba
