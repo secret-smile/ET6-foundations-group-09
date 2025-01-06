@@ -41,6 +41,21 @@ class TestCelsiusToFahrenheit(unittest.TestCase):
         """Test a very large negative Celsius value"""
         self.assertAlmostEqual(celsius_to_fahrenheit(-273.15), -459.67)
 
+    def test_infinity_positive(self):
+        """Test positive infinity."""
+        result = celsius_to_fahrenheit(float("inf"))
+        self.assertEqual(result, float("inf"))
+
+    def test_infinity_negative(self):
+        """Test negative infinity."""
+        result = celsius_to_fahrenheit(float("-inf"))
+        self.assertEqual(result, float("-inf"))
+
+    def test_nan_value(self):
+        """Test if NaN is handled correctly."""
+        with self.assertRaises(AssertionError):
+            celsius_to_fahrenheit(float("nan"))
+
     def test_zero_input(self):
         """Test zero as input."""
         self.assertAlmostEqual(celsius_to_fahrenheit(0), 32.0)
