@@ -11,7 +11,7 @@ Created on 03 01 2025
 
 import unittest
 
-from solutions.number_to_word import number_to_word
+from ..number_to_word import number_to_word
 
 
 class TestNumberToWord(unittest.TestCase):
