@@ -10,6 +10,8 @@ Created on 30 12 2024
 @author: Terry Aziaba
 """
 
+import math
+
 
 def celsius_to_fahrenheit(celsius: float) -> float:
     """Converts a temperature from Celsius to Fahrenheit.
@@ -35,6 +37,7 @@ def celsius_to_fahrenheit(celsius: float) -> float:
     """
     # This line ensures the input (temperature) is a number (int or float)
     assert isinstance(celsius, (int, float)), "Input temperature must be a number."
+    assert not math.isnan(celsius), "Input temperature must not be NaN."
 
     # Conversion
     fahrenheit = (celsius * 9 / 5) + 32
