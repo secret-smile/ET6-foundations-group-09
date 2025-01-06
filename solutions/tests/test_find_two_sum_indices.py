@@ -14,15 +14,15 @@ from solutions.find_two_sum_indices import find_two_sum_indices
 
 class TestFindTwoSumIndices(unittest.TestCase):
     # Basic test cases
-    def test_basic_case_1(self):
+    def test_with_simple_target_sum(self):
         """Test basic case with a simple target sum."""
         self.assertEqual(find_two_sum_indices([2, 7, 11, 15], 9), [0, 1])
 
-    def test_basic_case_2(self):
+    def test_with_different_array_and_target(self):
         """Test basic case with a different array and target."""
         self.assertEqual(find_two_sum_indices([3, 2, 4], 6), [1, 2])
 
-    def test_basic_case_3(self):
+    def test_with_duplicates(self):
         """Test basic case with duplicate values."""
         self.assertEqual(find_two_sum_indices([3, 3], 6), [0, 1])
 
