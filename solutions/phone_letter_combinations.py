@@ -8,7 +8,7 @@ Module contents:
       letter combinations in phone keyboard for the numbers given
       for simplification I made it maximum of 2 digits
 
-Created on 2024-12-30
+Created on 2024-01-07
 Author: Hiba Daffallah
 """
 
@@ -17,7 +17,7 @@ def phone_letter_combinations(digits: str) -> list[str]:
     """
     phone_letter_combinations function creates a new list with possible
     letter combinations in phone keyboard for the numbers given
-    for simplification I made it maximum of 2 digits
+
 
     Parameters:
     digits: string of numbers it should be from 2 to 9
@@ -33,8 +33,10 @@ def phone_letter_combinations(digits: str) -> list[str]:
     ['ad', 'ae', 'af', 'bd', 'be', 'bf', 'cd', 'ce', 'cf']
     >>> phone_letter_combinations("")
     []
-    >>> phone_letter_combinations("2")
-    ['a', 'b', 'c']
+    >>> phone_letter_combinations("234")
+    ['adg', 'adh', 'adi', 'aeg', 'aeh', 'aei', 'afg', 'afh',
+      'afi', 'bdg', 'bdh', 'bdi', 'beg', 'beh', 'bei', 'bfg',
+      'bfh', 'bfi', 'cdg', 'cdh', 'cdi', 'ceg', 'ceh', 'cei', 'cfg', 'cfh', 'cfi']
     >>> phone_letter_combinations("1")
     Input must only contain digits from 2 to 9.
     """
