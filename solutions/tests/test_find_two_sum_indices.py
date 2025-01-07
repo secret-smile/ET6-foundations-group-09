@@ -11,6 +11,7 @@ Author: Jeffery Offei Darko
 import unittest
 from solutions.find_two_sum_indices import find_two_sum_indices
 
+
 class TestFindTwoSumIndices(unittest.TestCase):
     # Basic tests
     def test_with_simple_target_sum(self):
