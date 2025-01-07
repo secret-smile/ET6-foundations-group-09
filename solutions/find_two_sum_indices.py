@@ -36,23 +36,28 @@ def find_two_sum_indices(nums: list[float], target: float) -> list[int]:
     >>> find_two_sum_indices([3.0, 3], 6.0)
     [0, 1]
     """
-    # Debugging input validation
+    import math
+
+    # Validate inputs
     assert isinstance(nums, list), "Input must be a list."
     assert all(
         isinstance(num, (int, float)) for num in nums
-    ), "List must contain numbers (integers or floats)."
-    assert isinstance(
-        target, (int, float)
-    ), "Target must be a number (integer or float)."
+    ), "List must contain numbers."
+    assert isinstance(target, (int, float)), "Target must be a number."
     assert len(nums) > 1, "List must contain at least two numbers."
+    assert not any(
+        math.isnan(x) for x in nums
+    ), "Input list must not contain NaN values."
+    assert not math.isnan(target), "Target must not be NaN."
 
-    # Debugging main logic
+    # Main logic with floating-point precision handling
+    epsilon = 1e-7
     num_map = {}
     for i, num in enumerate(nums):
         complement = target - num
-        if complement in num_map:
-            return [num_map[complement], i]
+        for seen_num, seen_index in num_map.items():
+            if abs(seen_num - complement) < epsilon:
+                return [seen_index, i]
         num_map[num] = i
 
-    # Debugging output if no solution
     assert False, "No two numbers add up to the target sum."
