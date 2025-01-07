@@ -109,7 +109,20 @@ class TestFindTwoSumIndices(unittest.TestCase):
         """Test with an invalid target of None."""
         with self.assertRaises(AssertionError):
             find_two_sum_indices([1, 2, 3], None)
-
-
+            
+        #adding edge cases
+    def test_with_precision(self):
+        """Test edge case with float precision."""
+        self.assertEqual(find_two_sum_indices([1.0000001, 2.9999999], 4), [0, 1])    
+   
+    def test_with_nan(self):
+        """Test with NaN input or target."""
+        with self.assertRaises(ValueError):
+            find_two_sum_indices([float("nan"), 2.5], float("nan"))
+    
+    def test_with_zero_target(self):
+        "Test when the target is zero."
+        self.assertEqual(find_two_sum_indices([-1, 1, 2], 0), [0, 1])
+        
 if __name__ == "__main__":
     unittest.main()
