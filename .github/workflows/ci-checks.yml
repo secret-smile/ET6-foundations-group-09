@@ -58,11 +58,10 @@ jobs:
       - name: python version
         run: python --version
         shell: bash
-      
+
       - name: Check for test files
         id: check_tests
         run: |
-
           if find . -type f -name "test_*.py" | grep -q .; then
             echo "has_tests=true" >> $GITHUB_OUTPUT
           else
@@ -71,6 +70,6 @@ jobs:
         shell: bash
       - name: Python - Run Tests
         if: steps.check_tests.outputs.has_tests == 'true'
-        run: python -m unittest
+        run: echo "PYTHONPATH=$GITHUB_WORKSPACE" >> $GITHUB_ENV
         shell: bash
 
