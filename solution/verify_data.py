@@ -1,10 +1,11 @@
-"""This function validate names,email address, password, credit card number, and id number
-"""
+"""This function validate names,email address, password, credit card number, and id number"""
+
+
 def validate_name(name):
-    """ validate the names to ensure that it contains alphabetical characters and spaces only
+    """validate the names to ensure that it contains alphabetical characters and spaces only
 
     parameters:
-        name (str): the name to be validated 
+        name (str): the name to be validated
 
     Returns:
         bool: true if the name is valid, false otherwise.
@@ -16,7 +17,7 @@ def validate_name(name):
 
 
 def validate_id_number(id_number):
-    """ validate ID number that contains numbers only and has at least 9 digits
+    """validate ID number that contains numbers only and has at least 9 digits
 
     parameters:
         ID_number (str): ID number to validate
@@ -24,13 +25,14 @@ def validate_id_number(id_number):
     Returns:
         bool:  true if true, otherwise false
     """
-    if  id_number.isdigit() and len(id_number) >= 9:
+    if id_number.isdigit() and len(id_number) >= 9:
         return True
     else:
         return False
 
+
 def validate_email(email):
-    """ Validate the email address that contain @ and dot(.)
+    """Validate the email address that contain @ and dot(.)
 
     parameters:
         email (str): email address to be validated
@@ -46,8 +48,9 @@ def validate_email(email):
         return False
     return True
 
+
 def validate_credit_card(card_number):
-    """ validate credit card number using the Luhn algorithm
+    """validate credit card number using the Luhn algorithm
 
     parameters:
         card_number (str): credit card number to be validated
@@ -69,8 +72,9 @@ def validate_credit_card(card_number):
         total += n
     return total % 10 == 0
 
+
 def validate_password(password):
-    """ validate password base on the following criteria
+    """validate password base on the following criteria
     - at least 8 characters
     - at least one uppercase
     - at least one lowercase
@@ -89,4 +93,4 @@ def validate_password(password):
     has_lower = any(char.islower() for char in password)
     has_digit = any(char.isdigit() for char in password)
     has_special = any(char in "!@#$%^&*()-+" for char in password)
-    return has_upper and has_lower and has_digit and has_special     
+    return has_upper and has_lower and has_digit and has_special
