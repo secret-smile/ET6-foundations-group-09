@@ -22,10 +22,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Python - debugging Formatting
+      - name: Python - Check Formatting
         uses: astral-sh/ruff-action@v1
         with:
-          args: "format --diff"
+          args: "format --check"
 
   py_linting:
     runs-on: ubuntu-latest
