@@ -6,7 +6,7 @@ A module for converting single-digit number into its word representation.
 Module contents:
     - number_to_word: converts a number ranging from (0-9) to it's word equivalent.
 
-Created on 03 01 2024
+Created on 04 01 2024
 @author: Terry Aziaba
 """
 
